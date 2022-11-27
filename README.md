@@ -1,2 +1,3 @@
-# cryptometer
-Second Cloud Computing Project / Homework.
+<h1 align="center">
+  Cryptometer
+</h1>

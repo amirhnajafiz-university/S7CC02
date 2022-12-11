@@ -23,6 +23,11 @@ func New(cfg Config) *Client {
 	}
 }
 
+// GetCryptoName returns the crypto name.
+func (c *Client) GetCryptoName() string {
+	return c.cfg.Crypto
+}
+
 // Get returns the prize of crypto.
 func (c *Client) Get() (string, float32, error) {
 	price, err := c.client.SimpleSinglePrice(c.cfg.Crypto, c.cfg.Value)

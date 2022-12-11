@@ -3,11 +3,11 @@
 FROM alpine:3.12
 
 # update and upgrade
-RUN apk-upgrade
+RUN apk update
 
 # install dependencies
 RUN apk add --no-cache \
     curl
 
 # run a command
-RUN curl https://www.google.com
+CMD ["curl", "https://www.google.com"]

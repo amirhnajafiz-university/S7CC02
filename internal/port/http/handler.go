@@ -15,7 +15,7 @@ const redisKey = "crypto"
 
 // Handler manages the endpoints implementations.
 type Handler struct {
-	Crypto  crypto.Client
+	Crypto  *crypto.Client
 	Storage *storage.Storage
 }
 

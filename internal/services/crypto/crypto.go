@@ -35,5 +35,5 @@ func (c *Client) Get() (string, float32, error) {
 		return "", 0, fmt.Errorf("get prize failed: %v", err)
 	}
 
-	return price.Currency, price.MarketPrice, nil
+	return price.ID, price.MarketPrice, nil
 }

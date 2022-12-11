@@ -1,0 +1,10 @@
+port: 6030
+
+crypto:
+  name: "bitcoin"
+  value: "usd"
+
+storage:
+  host: ""
+  password: ""
+  timeout: 5

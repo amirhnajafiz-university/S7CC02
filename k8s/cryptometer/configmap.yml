@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+
+metadata:
+  name: crypto-meter-cluster
+
+data:
+  config.yml:  |+
+    port: 6030
+    crypto:
+      name: "bitcoin"
+      value: "usd"
+    storage:
+      host: "0.0.0.0:6037"
+      password: ""
+      timeout: 5

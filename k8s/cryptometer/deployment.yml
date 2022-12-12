@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: crypto-meter
+
+spec:
+  selector:
+    matchLabels:
+      app: crypto-meter
+  template:
+    spec:
+      containers:
+        - name: crypto-meter
+          image: amirhossein21/crypto-meter
+          ports:
+            - containerPort: 6030
+              name: crypto-meter
+      volumes:
+        - name: config
+          configMap:
+            name: configmap

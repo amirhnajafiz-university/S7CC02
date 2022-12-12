@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: crypto-meter
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 6030
+      targetPort: 6030
+      name: crypto-meter
+  selector:
+    app: crypto-meter

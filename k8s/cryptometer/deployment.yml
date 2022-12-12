@@ -13,10 +13,17 @@ spec:
     spec:
       containers:
         - name: crypto-meter
-          image: amirhossein21/crypto-meter
+          image: amirhossein21/crypto-meter:v0.1.0
           ports:
             - containerPort: 6030
               name: crypto-meter
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "250m"
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
       volumes:
         - name: config
           configMap:

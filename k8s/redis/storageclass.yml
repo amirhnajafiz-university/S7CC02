@@ -5,6 +5,8 @@ metadata:
   name: crypto-local-storage
 
 provisioner: kubernetes.io/no-provisioner
+
 volumeBindingMode: WaitForFirstConsumer
 allowVolumeExpansion: true
+
 reclaimPolicy: Delete

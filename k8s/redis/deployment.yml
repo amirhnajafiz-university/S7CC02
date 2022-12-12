@@ -7,22 +7,16 @@ metadata:
 spec:
   serviceName: redis
   replicas: 1
+
   selector:
     matchLabels:
       app: redis
+
   template:
     metadata:
       labels:
         app: redis
     spec:
-      initContainers:
-        - name: config
-          image: redis:6.2.3-alpine
-          volumeMounts:
-            - name: redis-config
-              mountPath: /etc/redis/
-            - name: config
-              mountPath: /tmp/redis/
       containers:
         - name: redis
           image: redis:6.2.3-alpine
@@ -39,7 +33,7 @@ spec:
       volumes:
         - name: redis-config
           emptyDir: {}
-        - name: config
+        - name: redis-configmap
           configMap:
             name: configmap
   volumeClaimTemplates:
@@ -50,4 +44,4 @@ spec:
         storageClassName: "crypto-local-storage"
         resources:
           requests:
-            storage: 500Mi
+            storage: 1Gi

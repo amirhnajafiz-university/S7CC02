@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 
 metadata:
-  name: crypto-meter-cluster
+  name: crypto-meter-configmap
 
 data:
   config.yml:  |+

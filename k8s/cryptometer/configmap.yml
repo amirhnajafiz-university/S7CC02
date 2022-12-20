@@ -11,6 +11,6 @@ data:
       name: "bitcoin"
       value: "usd"
     storage:
-      host: "redis:6037"
-      password: ""
+      host: "10.96.76.80:6037"
+      password: "12345678"
       timeout: 5

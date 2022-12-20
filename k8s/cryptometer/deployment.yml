@@ -5,11 +5,14 @@ metadata:
   name: cryptometer
 
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: cryptometer
   template:
+    metadata:
+      labels:
+        app: cryptometer
     spec:
       containers:
         - name: cryptometer
@@ -24,10 +27,11 @@ spec:
             limits:
               memory: "128Mi"
               cpu: "500m"
+          volumeMounts:
+            - name: config
+              mountPath: /app/config.yml
+              subPath: config.yml
       volumes:
         - name: config
           configMap:
-            name: configmap
-            items:
-            - key: cryptometer-configmap
-              path: config.yml
+            name: cryptometer-configmap

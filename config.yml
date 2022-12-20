@@ -5,6 +5,6 @@ crypto:
   value: "usd"
 
 storage:
-  host: "localhost:6379"
+  host: "0.0.0.0:6379"
   password: ""
   timeout: 5

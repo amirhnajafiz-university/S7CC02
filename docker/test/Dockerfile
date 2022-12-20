@@ -8,6 +8,3 @@ RUN apk update
 # install dependencies
 RUN apk add --no-cache \
     curl
-
-# run a command
-CMD ["curl", "https://www.google.com"]

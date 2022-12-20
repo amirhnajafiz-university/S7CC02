@@ -1,47 +1,45 @@
 apiVersion: apps/v1
-kind: StatefulSet
+kind: Deployment
 
 metadata:
+  labels:
+    name: redis
   name: redis
 
 spec:
-  serviceName: redis
-  replicas: 1
-
+  replicas: 3
   selector:
     matchLabels:
-      app: redis
-
+      name: redis
   template:
     metadata:
       labels:
-        app: redis
+        name: redis
     spec:
-      containers:
-        - name: redis
-          image: redis:6.2.3-alpine
-          command: ["redis-server"]
-          args: ["/etc/redis/redis.conf"]
-          ports:
-            - containerPort: 6379
-              name: redis
-          volumeMounts:
-            - name: data
-              mountPath: /data
-            - name: redis-config
-              mountPath: /etc/redis/
       volumes:
-        - name: redis-config
-          emptyDir: {}
-        - name: redis-configmap
+        - name: pvc
+          persistentVolumeClaim:
+            claimName: redisdb-pvc
+        - name: config
           configMap:
-            name: configmap
-  volumeClaimTemplates:
-    - metadata:
-        name: data
-      spec:
-        accessModes: [ "ReadWriteOnce" ]
-        storageClassName: "crypto-local-storage"
+            name: redis-configmap
+            items:
+            - key: redis-config
+              path: redis.conf
+      containers:
+      - name: redis
+        image: redis
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 6379
+          name: redis
+        volumeMounts:
+          - mountPath: "/data"
+            name: pvc
         resources:
           requests:
-            storage: 1Gi
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"

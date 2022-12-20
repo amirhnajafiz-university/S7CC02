@@ -1,14 +1,18 @@
+# creating a service kind manifest
 apiVersion: v1
 kind: Service
 
+# service meta data
 metadata:
-  name: redis
+  name: redis-service
+  namespace: redis
+  labels:
+    app: redis
 
+# service specific details
 spec:
-  type: LoadBalancer
   ports:
     - port: 6379
-      targetPort: 6379
-      name: redis
+  clusterIP: None
   selector:
     app: redis

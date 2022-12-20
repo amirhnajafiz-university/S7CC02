@@ -1,14 +1,17 @@
+# creating a persistent volume kind manifest for redis
 apiVersion: v1
 kind: PersistentVolume
 
 metadata:
-  name: local-pv1
+  name: redis-pv
+  labels:
+    type: local
 
 spec:
-  storageClassName: crypto-local-storage
+  storageClassName: manual
   capacity:
     storage: 1Gi
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: "/storage/data1"
+    path: "/data"

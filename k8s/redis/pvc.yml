@@ -1,10 +1,14 @@
+# creating a persistent volume claim kind manifest for redis
 apiVersion: v1
-kind: PersistentVolume
+kind: PersistentVolumeClaim
 
 metadata:
-  name: redis
+  name: redisdb-pvc
 
 spec:
-  storageClassName: "crypto-local-storage"
-  claimRef:
-    name: local-pv1
+  storageClassName: manual
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi

@@ -2,21 +2,21 @@ apiVersion: apps/v1
 kind: Deployment
 
 metadata:
-  name: crypto-meter
+  name: cryptometer
 
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: crypto-meter
+      app: cryptometer
   template:
     spec:
       containers:
-        - name: crypto-meter
-          image: amirhossein21/crypto-meter:v0.1.0
+        - name: cryptometer
+          image: amirhossein21/cryptometer:v0.1
           ports:
             - containerPort: 6030
-              name: crypto-meter
+              name: cryptometer
           resources:
             requests:
               memory: "64Mi"
@@ -28,3 +28,6 @@ spec:
         - name: config
           configMap:
             name: configmap
+            items:
+            - key: cryptometer-configmap
+              path: config.yml

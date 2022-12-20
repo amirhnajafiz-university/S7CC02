@@ -42,3 +42,8 @@ func (s *Storage) Write(key string, value string) error {
 
 	return s.rdb.Set(ctx, key, value, time.Duration(s.timeout)*time.Minute).Err()
 }
+
+// Ping redis cluster.
+func (s *Storage) Ping(ctx context.Context) error {
+	return s.rdb.Ping(ctx).Err()
+}

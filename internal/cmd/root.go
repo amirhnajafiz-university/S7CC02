@@ -33,6 +33,7 @@ func Execute() {
 
 	// define endpoints
 	app.Get("/api", h.Get)
+	app.Get("/hlz", h.Health)
 
 	// start server
 	log.Println(app.Listen(fmt.Sprintf(":%d", cfg.Port)))

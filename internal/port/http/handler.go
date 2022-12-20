@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"strconv"
+	"time"
 
 	"github.com/ceit-aut/cryptometer/internal/services/crypto"
 	"github.com/ceit-aut/cryptometer/internal/storage"
@@ -17,6 +18,15 @@ const redisKey = "crypto"
 type Handler struct {
 	Crypto  *crypto.Client
 	Storage *storage.Storage
+}
+
+// Health returns service status.
+func (h *Handler) Health(ctx *fiber.Ctx) error {
+	if err := h.Storage.Ping(ctx.Context()); err != nil {
+		return ctx.SendString(fmt.Sprintf("%s\n%v\n", time.Now(), err))
+	}
+
+	return ctx.SendString(fmt.Sprintf("%s\nOK\n", time.Now()))
 }
 
 // Get request for getting crypto prizes.

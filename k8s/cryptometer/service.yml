@@ -5,12 +5,9 @@ metadata:
   name: cryptometer
 
 spec:
-  type: LoadBalancer
-  ports:
-    - name: http
-      protocol: TCP
-      port: 6030
-      targetPort: 6030
-      name: cryptometer
   selector:
     app: cryptometer
+  ports:
+    - protocol: TCP
+      port: 6030
+      targetPort: 6030

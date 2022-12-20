@@ -31,8 +31,7 @@ spec:
         image: redis
         imagePullPolicy: Always
         ports:
-        - containerPort: 6379
-          name: redis
+          - containerPort: 6379
         volumeMounts:
           - mountPath: "/data"
             name: pvc

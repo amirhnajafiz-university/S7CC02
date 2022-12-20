@@ -1,16 +1,13 @@
-# creating a service kind manifest
 apiVersion: v1
 kind: Service
 
-# service meta data
 metadata:
   name: redis-service
-  labels:
-    app: redis
 
-# service specific details
 spec:
-  ports:
-    - port: 6379
   selector:
-    app: redis
+    name: redis
+  ports:
+    - protocol: TCP
+      port: 6379
+      targetPort: 6379

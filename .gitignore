@@ -18,3 +18,5 @@
 .vscode/
 
 .DS_store
+
+config.yml

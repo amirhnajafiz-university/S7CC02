@@ -5,6 +5,6 @@ crypto:
   value: "usd"
 
 storage:
-  host: "172.18.0.2:6379"
+  host: "cryptometer-redis-cluster:6379"
   password: ""
   timeout: 5

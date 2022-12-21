@@ -8,3 +8,6 @@ RUN apk update
 # install dependencies
 RUN apk add --no-cache \
     curl
+
+# cmd part
+CMD ["tail", "-f", "/dev/null"]

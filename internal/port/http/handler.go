@@ -35,6 +35,8 @@ func (h *Handler) Get(ctx *fiber.Ctx) error {
 		response Response
 	)
 
+	log.Println("service accepted user request")
+
 	if value, err := h.Storage.Read(redisKey); err == nil {
 		// get crypto name
 		response.Name = h.Crypto.GetCryptoName()

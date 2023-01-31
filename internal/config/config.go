@@ -4,8 +4,9 @@ import (
 	"encoding/json"
 	"log"
 
-	"github.com/ceit-aut/cryptometer/internal/services/crypto"
-	"github.com/ceit-aut/cryptometer/internal/storage"
+	"github.com/ceit-aut/S7CC02/internal/services/crypto"
+	"github.com/ceit-aut/S7CC02/internal/storage"
+
 	"github.com/knadh/koanf"
 	"github.com/knadh/koanf/parsers/yaml"
 	"github.com/knadh/koanf/providers/file"

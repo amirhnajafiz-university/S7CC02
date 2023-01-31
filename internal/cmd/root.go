@@ -4,10 +4,11 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/ceit-aut/cryptometer/internal/config"
-	"github.com/ceit-aut/cryptometer/internal/port/http"
-	"github.com/ceit-aut/cryptometer/internal/services/crypto"
-	"github.com/ceit-aut/cryptometer/internal/storage"
+	"github.com/ceit-aut/S7CC02/internal/config"
+	"github.com/ceit-aut/S7CC02/internal/port/http"
+	"github.com/ceit-aut/S7CC02/internal/services/crypto"
+	"github.com/ceit-aut/S7CC02/internal/storage"
+
 	"github.com/gofiber/fiber/v2"
 )
 

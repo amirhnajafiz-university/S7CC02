@@ -1,4 +1,4 @@
-module github.com/ceit-aut/cryptometer
+module github.com/ceit-aut/S7CC02
 
 go 1.19
 

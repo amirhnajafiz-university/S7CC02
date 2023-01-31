@@ -1,8 +1,8 @@
 package config
 
 import (
-	"github.com/ceit-aut/cryptometer/internal/services/crypto"
-	"github.com/ceit-aut/cryptometer/internal/storage"
+	"github.com/ceit-aut/S7CC02/internal/services/crypto"
+	"github.com/ceit-aut/S7CC02/internal/storage"
 )
 
 // Default config values.

@@ -1,5 +1,5 @@
 <h1 align="center">
-  Cryptometer
+  S7CC02
 </h1>
 
 <br />
